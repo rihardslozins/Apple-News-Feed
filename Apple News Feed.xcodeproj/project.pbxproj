@@ -3,27 +3,34 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B9EC002325D6A86400FEE197 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EC002225D6A86400FEE197 /* AppDelegate.swift */; };
 		B9EC002525D6A86400FEE197 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EC002425D6A86400FEE197 /* SceneDelegate.swift */; };
-		B9EC002725D6A86400FEE197 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EC002625D6A86400FEE197 /* ViewController.swift */; };
+		B9EC002725D6A86400FEE197 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EC002625D6A86400FEE197 /* NewsFeedViewController.swift */; };
 		B9EC002A25D6A86400FEE197 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9EC002825D6A86400FEE197 /* Main.storyboard */; };
 		B9EC002C25D6A86600FEE197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9EC002B25D6A86600FEE197 /* Assets.xcassets */; };
 		B9EC002F25D6A86600FEE197 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9EC002D25D6A86600FEE197 /* LaunchScreen.storyboard */; };
+		B9EC004025D6AC3400FEE197 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EC003F25D6AC3400FEE197 /* DetailViewController.swift */; };
+		B9EC004325D6AC4000FEE197 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EC004225D6AC4000FEE197 /* WebViewController.swift */; };
+		B9EC004725D6AF1500FEE197 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EC004625D6AF1500FEE197 /* Item.swift */; };
+		B9EC004C25D6B21500FEE197 /* Gloss in Frameworks */ = {isa = PBXBuildFile; productRef = B9EC004B25D6B21500FEE197 /* Gloss */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B9EC001F25D6A86400FEE197 /* Apple News Feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple News Feed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9EC002225D6A86400FEE197 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9EC002425D6A86400FEE197 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B9EC002625D6A86400FEE197 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B9EC002625D6A86400FEE197 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
 		B9EC002925D6A86400FEE197 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B9EC002B25D6A86600FEE197 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9EC002E25D6A86600FEE197 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9EC003025D6A86600FEE197 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9EC003F25D6AC3400FEE197 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B9EC004225D6AC4000FEE197 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		B9EC004625D6AF1500FEE197 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9EC004C25D6B21500FEE197 /* Gloss in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +64,50 @@
 		B9EC002125D6A86400FEE197 /* Apple News Feed */ = {
 			isa = PBXGroup;
 			children = (
-				B9EC002225D6A86400FEE197 /* AppDelegate.swift */,
-				B9EC002425D6A86400FEE197 /* SceneDelegate.swift */,
-				B9EC002625D6A86400FEE197 /* ViewController.swift */,
-				B9EC002825D6A86400FEE197 /* Main.storyboard */,
+				B9EC004525D6AF0700FEE197 /* Model */,
+				B9EC003725D6A88800FEE197 /* App Delegate */,
+				B9EC003A25D6A8B900FEE197 /* Controllers */,
+				B9EC003D25D6A8CA00FEE197 /* View */,
 				B9EC002B25D6A86600FEE197 /* Assets.xcassets */,
-				B9EC002D25D6A86600FEE197 /* LaunchScreen.storyboard */,
 				B9EC003025D6A86600FEE197 /* Info.plist */,
 			);
 			path = "Apple News Feed";
+			sourceTree = "<group>";
+		};
+		B9EC003725D6A88800FEE197 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B9EC002225D6A86400FEE197 /* AppDelegate.swift */,
+				B9EC002425D6A86400FEE197 /* SceneDelegate.swift */,
+			);
+			path = "App Delegate";
+			sourceTree = "<group>";
+		};
+		B9EC003A25D6A8B900FEE197 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B9EC002625D6A86400FEE197 /* NewsFeedViewController.swift */,
+				B9EC003F25D6AC3400FEE197 /* DetailViewController.swift */,
+				B9EC004225D6AC4000FEE197 /* WebViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B9EC003D25D6A8CA00FEE197 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9EC002825D6A86400FEE197 /* Main.storyboard */,
+				B9EC002D25D6A86600FEE197 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9EC004525D6AF0700FEE197 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B9EC004625D6AF1500FEE197 /* Item.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +126,9 @@
 			dependencies = (
 			);
 			name = "Apple News Feed";
+			packageProductDependencies = (
+				B9EC004B25D6B21500FEE197 /* Gloss */,
+			);
 			productName = "Apple News Feed";
 			productReference = B9EC001F25D6A86400FEE197 /* Apple News Feed.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +156,9 @@
 				Base,
 			);
 			mainGroup = B9EC001625D6A86400FEE197;
+			packageReferences = (
+				B9EC004A25D6B21500FEE197 /* XCRemoteSwiftPackageReference "Gloss" */,
+			);
 			productRefGroup = B9EC002025D6A86400FEE197 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,9 +186,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9EC002725D6A86400FEE197 /* ViewController.swift in Sources */,
+				B9EC002725D6A86400FEE197 /* NewsFeedViewController.swift in Sources */,
 				B9EC002325D6A86400FEE197 /* AppDelegate.swift in Sources */,
 				B9EC002525D6A86400FEE197 /* SceneDelegate.swift in Sources */,
+				B9EC004325D6AC4000FEE197 /* WebViewController.swift in Sources */,
+				B9EC004725D6AF1500FEE197 /* Item.swift in Sources */,
+				B9EC004025D6AC3400FEE197 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +393,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B9EC004A25D6B21500FEE197 /* XCRemoteSwiftPackageReference "Gloss" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hkellaway/Gloss.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B9EC004B25D6B21500FEE197 /* Gloss */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9EC004A25D6B21500FEE197 /* XCRemoteSwiftPackageReference "Gloss" */;
+			productName = Gloss;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B9EC001725D6A86400FEE197 /* Project object */;
 }
