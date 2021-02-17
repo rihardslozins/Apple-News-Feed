@@ -15,6 +15,7 @@ class SavedNewsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
@@ -24,12 +25,13 @@ class SavedNewsTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        //load
+        loadData()
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        //load
         loadData()
     }
     func loadData(){
@@ -39,13 +41,19 @@ class SavedNewsTableViewController: UITableViewController {
             savedItems = try (context?.fetch(request))!
             
         }catch{
-            //alert
             print(error.localizedDescription)
         }
         tableView.reloadData()
     }
     
-    //saveData()
+    func saveData() {
+        do {
+            try self.context?.save()
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+        loadData()
+    }
     
     // MARK: - Table view data source
     
@@ -70,46 +78,59 @@ class SavedNewsTableViewController: UITableViewController {
         
         return cell
     }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
     
-    //height
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let currentTrack = savedItems.remove(at: fromIndexPath.row)
+        savedItems.insert(currentTrack, at: to.row)
+    }
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
+    // Warning PopUp Alert
+    func warningPopup(withTitle title: String?, withMessage message: String?) {
+        DispatchQueue.main.async {
+            let popUp = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            popUp.addAction(okButton)
+            self.present(popUp, animated: true, completion: nil)
+        }
+    }
     
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let alert = UIAlertController(title: "Delete", message: "You sure you want to delete?", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: {_ in
+                
+                let item = self.savedItems[indexPath.row]
+                
+                self.context?.delete(item)
+                self.saveData()
+                
+            }))
+            self.present(alert, animated: true)
+        }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    //didSelectRowAt
-    
-}
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let vc = storyboard.instantiateViewController(identifier: "WebKitIdentifier") as? WebViewController else {
+            return
+        }
+        
+        vc.urlString = savedItems[indexPath.row].url!
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}//End

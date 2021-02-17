@@ -220,12 +220,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hn1-N0-emI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2776.811594202899" y="116.51785714285714"/>
+            <point key="canvasLocation" x="2775" y="117"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="V4e-p3-VoH">
             <objects>
-                <viewController id="Gfk-3D-ywi" customClass="WebViewController" customModule="Apple_News_Feed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebKitIdentifier" id="Gfk-3D-ywi" customClass="WebViewController" customModule="Apple_News_Feed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9jx-Gt-95j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNX-T1-iFw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3671.0144927536235" y="116.51785714285714"/>
+            <point key="canvasLocation" x="3680" y="117"/>
         </scene>
         <!--News-->
         <scene sceneID="FKu-VS-EEf">
@@ -293,7 +293,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lO-M4-nkn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-88" y="474"/>
+            <point key="canvasLocation" x="-116" y="465"/>
         </scene>
         <!--Saved News Table View Controller-->
         <scene sceneID="s8f-lo-OkF">
@@ -356,7 +356,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEz-P9-U3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1895.6521739130437" y="857.8125"/>
+            <point key="canvasLocation" x="1897" y="858"/>
         </scene>
         <!--Saved News-->
         <scene sceneID="olO-fo-Ca9">
